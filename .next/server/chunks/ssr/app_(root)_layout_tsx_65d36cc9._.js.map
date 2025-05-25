@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/delsa/Desktop/youtube-project/my-project/app/%28root%29/layout.tsx"],"sourcesContent":["import Navbar from \"../..Navbar/components/Navbar\";\n\nexport default function Layout({\n  children,\n}: Readonly<{ children: React.ReactNode }>) {\n  return (\n    <main className=\"font-work-sans\">\n      <Navbar />\n      {children}\n    </main>\n  );\n}\n"],"names":[],"mappings":";;;;;;;;;;;AAEe,SAAS,OAAO,EAC7B,QAAQ,EACgC;IACxC,qBACE,8OAAC;QAAK,WAAU;;0BACd,8OAAC;;;;;YACA;;;;;;;AAGP","debugId":null}}]
-}
