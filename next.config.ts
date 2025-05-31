@@ -13,6 +13,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // for partial prerendering
+  experimental: {
+    ppr: "incremental",
+  },
+  devIndicators: {
+    appIsrStatus: true,
+    buildActivity: true,
+    buildActivityPosition: "bottom-right",
+  },
 };
 
 export default nextConfig;

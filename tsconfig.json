@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "Preserve",
+    "module": "esnext",
     "moduleDetection": "force",
     "isolatedModules": true,
     "jsx": "preserve",
@@ -20,13 +20,16 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "next.config.ts", "auth.js"  ],
   "exclude": [
     "node_modules"
   ]
