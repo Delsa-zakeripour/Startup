@@ -6,7 +6,8 @@ import { formatDate } from "../../../../lib/utils";
 import Link from "next/link";
 import markdownit from "markdown-it";
 import { Skeleton } from "../../../../components/ui/skeleton";
-import View from "../../../../components/view";
+import View from "../../../../components/View";
+import Image from "next/image";
 
 export const experimental_ppr = true;
 
@@ -28,7 +29,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <p className="sub-heading !max-w-5xl">{post.description}</p>
       </section>
 
-      <section className="section-container">
+      <section className="section_container">
         <img
           src={post.image}
           alt="thumbnail"
@@ -41,13 +42,13 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
               href={`/user/${post.author?._id}`}
               className="flex items-center gap-2 mb-3"
             >
-              {/* <Image
+              <Image
                 src={post.author.image}
                 alt="avatar"
-                width={64}
-                height={64}
-                className="rounded-full drop-shado-lg"
-              /> */}
+                width={40}
+                height={40}
+                className="rounded-full drop-shadow-lg"
+              />
               <div>
                 <p className="text-20-medium">{post.author.name}</p>
                 <p className="text-16-medium !text-black-300">
@@ -62,7 +63,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
             <article
-              className="prose max-w-4xl font-work-sans break-all"
+              className="prose max-w-4xl font-work-sans break-all text-gray-600 mb-6"
               dangerouslySetInnerHTML={{ __html: parsedContent }}
             />
           ) : (
@@ -73,6 +74,18 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
         <hr className="divider" />
 
         {/* {to do : editor selected startups} */}
+
+        {/* {editorPosts?.length > 0 && (
+          <div className="max-w-4xl mx-auto">
+            <p className="text-30-semibold">Editor Picks</p>
+
+            <ul className="mt-7 card_grid-sm">
+              {editorPosts.map((post: StartupTypeCard, i: number) => (
+                <StartupCard key={i} post={post} />
+              ))}
+            </ul>
+          </div>
+        )} */}
 
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <View id={post._id} />
