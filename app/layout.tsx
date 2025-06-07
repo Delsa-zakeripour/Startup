@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "YC Directory",
   description: "Pitch, Vote and Grew",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
