@@ -1,10 +1,11 @@
 import React from "react";
-import { formatDate } from "../lib/utils";
+import { cn, formatDate } from "../lib/utils";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Author, Startup } from "../sanity/types";
+import { Skeleton } from "./ui/skeleton";
 
 // interface StartupCardType {
 //   _createdAt: string;
@@ -20,19 +21,13 @@ import { Author, Startup } from "../sanity/types";
 //   title: string;
 // }
 
-
 // interface StartupCardProps {
-  //   post: StartupCardType;
-  // }
-  
-  
-  export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+//   post: StartupCardType;
+// }
 
-  const StartupCard=({
-  post,
-}: {
-  post: StartupTypeCard;
-}) => {
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
+
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
     views,
@@ -47,7 +42,7 @@ import { Author, Startup } from "../sanity/types";
   return (
     <li className="startup-card group">
       <div className="flex-between">
-        <p className="startup-card_date">{formatDate(_createdAt)}</p>
+        <p className="startup-card_date text-black">{formatDate(_createdAt)}</p>
         <div className="flex gap-1.5">
           <EyeIcon className="size-6 text-primary" />
           <span className="text-16-medium">{views}</span>
@@ -65,8 +60,8 @@ import { Author, Startup } from "../sanity/types";
         </div>
         <Link href={`/user/${author?._id}`}>
           <Image
-            src="https://placehold.co/48x48"
-            alt="placeholder"
+            src={author?.image || "/placeholder-avatar.png"}
+            alt={author?.name || "placeholder"}
             width={48}
             height={48}
             className="rounded-full"
@@ -90,5 +85,15 @@ import { Author, Startup } from "../sanity/types";
     </li>
   );
 };
+
+export const StartupCardSkeleton = () => (
+  <>
+    {[0, 1, 2, 3, 4].map((index: number) => (
+      <li key={cn("skeleton", index)}>
+        <Skeleton className="startup-card_skeleton" />
+      </li>
+    ))}
+  </>
+);
 
 export default StartupCard;

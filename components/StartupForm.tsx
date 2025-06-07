@@ -30,10 +30,9 @@ const StartupForm = () => {
       };
 
       await formSchema.parseAsync(formValue);
-      console.log("form value", formValue);
 
       const result = await createPitch(prevState, formData, pitch);
-      console.log(result);
+      // console.log(result);
 
       if ((result.toast = "SUCCESS")) {
         toast.success("Your startup pitch has been created successfully");
@@ -66,8 +65,7 @@ const StartupForm = () => {
     error: "",
     status: "INITIAL",
   });
-  console.log("errorssss", errors);
-  console.log("set errorssss", setErrors);
+ 
   return (
     <form action={formAction} className="startup-form">
       <div>
